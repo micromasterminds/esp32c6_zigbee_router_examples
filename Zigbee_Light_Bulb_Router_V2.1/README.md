@@ -27,8 +27,8 @@ By default, the `neoPixelWrite` function is used to control the LED. You can cha
 To get more information about the Espressif boards see [Espressif Development Kits](https://www.espressif.com/en/products/devkits).
 
 * Before Compile/Verify, select the correct board: `Tools -> Board`.
-* Select the End device Zigbee mode: `Tools -> Zigbee mode: Zigbee ED (end device)`
-* Select Partition Scheme for Zigbee: `Tools -> Partition Scheme: Zigbee 4MB with spiffs`
+* Select the End device Zigbee mode: `Tools -> Zigbee mode: Zigbee ZCZR (Coordinator or Router)`
+* Select Partition Scheme for Zigbee: `Tools -> Partition Scheme: Zigbee ZCZR 4MB with spiffs`
 * Select the COM port: `Tools -> Port: xxx` where the `xxx` is the detected COM port.
 
 ## Troubleshooting
