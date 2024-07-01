@@ -19,7 +19,7 @@
 // Hoffe es funzt auch 😂
 
 #ifndef ZIGBEE_MODE_ZCZR  // Coordinator Device or Router Device
-#error "Zigbee router device mode is not selected in Tools->Zigbee mode"
+#error "Zigbee router mode is not selected in Tools->Zigbee mode"
 #endif
 
 #include "esp_zigbee_core.h"
