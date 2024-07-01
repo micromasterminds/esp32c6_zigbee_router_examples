@@ -6,11 +6,10 @@
 
 SCD30 airSensor;
 
-static void temp_humid_sensor_handler(void *pvParameters) {
+static void SCD30_sensor_handler(void *pvParameters) {
 
-  vTaskDelay(100 / portTICK_PERIOD_MS);      // delay alternative for Tasks. Dont use delay()!
   Wire.begin(SCD30_SDA_PIN, SCD30_SCL_PIN);  // initialize I2C protocoll
-  vTaskDelay(100 / portTICK_PERIOD_MS);      // delay alternative for Tasks. Dont use delay()!
+  vTaskDelay(10 / portTICK_PERIOD_MS);       // delay alternative for Tasks. Dont use delay()!
 
   while (airSensor.begin(Wire, true) == false) {
     log_e("Air sensor not detected. Please check wiring....");
@@ -24,16 +23,16 @@ static void temp_humid_sensor_handler(void *pvParameters) {
       SCD30_CO2 = airSensor.getCO2();
       SCD30_temp = airSensor.getTemperature();
       SCD30_humid = airSensor.getHumidity();
-      // Serial.print("SCD30           ");
-      // Serial.print("Temperature: ");
-      // Serial.print(SCD30_temp);
-      // Serial.print(" C    ");
-      // Serial.print("Humidity:    ");
-      // Serial.print(SCD30_humid);
-      // Serial.print(" %    ");
-      // Serial.print("CO2:         ");
-      // Serial.print(SCD30_CO2);
-      // Serial.println(" ppm    ");
+      Serial.print("SCD30           ");
+      Serial.print("Temperature: ");
+      Serial.print(SCD30_temp);
+      Serial.print(" C    ");
+      Serial.print("Humidity:    ");
+      Serial.print(SCD30_humid);
+      Serial.print(" %    ");
+      Serial.print("CO2:         ");
+      Serial.print(SCD30_CO2);
+      Serial.println(" ppm    ");
     }
 
     vTaskDelay(500 / portTICK_PERIOD_MS);  // delay alternative for Tasks. Dont use delay()!

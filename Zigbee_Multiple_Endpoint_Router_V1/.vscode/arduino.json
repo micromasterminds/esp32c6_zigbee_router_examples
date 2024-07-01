@@ -1,0 +1,7 @@
+{
+    "sketch": "Zigbee_Dual_Endpoint_Router_V1.ino",
+    "configuration": "JTAGAdapter=default,CDCOnBoot=default,PartitionScheme=zigbee_zczr,CPUFreq=160,FlashMode=qio,FlashFreq=80,FlashSize=4M,UploadSpeed=921600,DebugLevel=verbose,EraseFlash=none,ZigbeeMode=zczr",
+    "board": "esp32:esp32:esp32c6",
+    "port": "/dev/tty.usbserial-110",
+    "intelliSenseGen": "global"
+}
