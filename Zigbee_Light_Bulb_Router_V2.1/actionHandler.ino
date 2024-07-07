@@ -1,4 +1,4 @@
-static esp_err_t zb_action_handler(esp_zb_core_action_callback_id_t callback_id, const void *message) {
+esp_err_t zb_action_handler(esp_zb_core_action_callback_id_t callback_id, const void *message) {
   esp_err_t ret = ESP_OK;
   switch (callback_id) {
     case ESP_ZB_CORE_SET_ATTR_VALUE_CB_ID: ret = zb_attribute_handler((esp_zb_zcl_set_attr_value_message_t *)message); break;
@@ -8,7 +8,7 @@ static esp_err_t zb_action_handler(esp_zb_core_action_callback_id_t callback_id,
 }
 
 /* Handle the light attribute */
-static esp_err_t zb_attribute_handler(const esp_zb_zcl_set_attr_value_message_t *message) {
+esp_err_t zb_attribute_handler(const esp_zb_zcl_set_attr_value_message_t *message) {
   esp_err_t ret = ESP_OK;
   bool light_state = 0;
 
