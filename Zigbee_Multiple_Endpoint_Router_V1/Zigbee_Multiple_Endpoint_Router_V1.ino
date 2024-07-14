@@ -28,8 +28,9 @@
 #include "ha/esp_zigbee_ha_standard.h"
 #include "defines.h"
 
-int SCD30_CO2;
-float SCD30_temp, SCD30_humid;
+// Global variables with standard values
+int SCD30_CO2 = 400;
+float SCD30_temp = 25, SCD30_humid = 50;
 
 /********************* Zigbee functions **************************/
 static void esp_zb_task(void *pvParameters) {
