@@ -1,6 +1,8 @@
 # esp32c6_zigbee_router_examples
 Easy to use ESP32-C6 Zigbee Router Light Bulb example in Arduino!
 
+- Arduino-ESP32 Carbon dioxide (CO2) Sensor Example
+  - SCD30 even simpler 
 - Zigbee_Light_Bulb_Router
   - Simple on/off light in router mode
 - Zigbee_RGB_Light_Bulb_Router
