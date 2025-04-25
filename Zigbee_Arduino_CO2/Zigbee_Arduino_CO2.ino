@@ -28,18 +28,37 @@ void setup() {
   // Init button switch
   pinMode(button, INPUT_PULLUP);
 
+  delay(2000);
+
+  // Checking button for factory reset and reporting
+  if (digitalRead(button) == LOW) {  // Push button pressed
+    // Key debounce handling
+    delay(100);
+    int startTime = millis();
+    while (digitalRead(button) == LOW) {
+      delay(50);
+      if ((millis() - startTime) > 3000) {
+        // If key pressed for more than 3secs, factory reset Zigbee and reboot
+        Serial.println("Resetting Zigbee to factory and rebooting in 1s.");
+        delay(1000);
+        Zigbee.factoryReset();
+      }
+    }
+  }
+
+
   if (airSensor.begin() == false) {
     Serial.println("Air sensor not detected. Please check wiring. Freezing...");
-    while (1)
-      ;
+    //while (1)
+    //  ;
   }
 
   airSensor.setAutoSelfCalibration(true);
   log_i("Auto calibration set to %d", airSensor.getAutoSelfCalibration());
 
   // Optional: set Zigbee device name and model
-  zbCarbonDioxideSensor.setManufacturerAndModel("MicroMasterMinds", "ZigbeeCarbonDioxideSensor");
-  zbTempSensor.setManufacturerAndModel("MicroMasterMinds", "ZigbeeCarbonDioxideSensor");
+  zbCarbonDioxideSensor.setManufacturerAndModel("MicroMasterMinds", "CarbonDioxideSensor");
+  zbTempSensor.setManufacturerAndModel("MicroMasterMinds", "TemperatureSensor");
 
   // Set minimum and maximum carbon dioxide measurement value in ppm
   zbCarbonDioxideSensor.setMinMaxValue(400, 10000);

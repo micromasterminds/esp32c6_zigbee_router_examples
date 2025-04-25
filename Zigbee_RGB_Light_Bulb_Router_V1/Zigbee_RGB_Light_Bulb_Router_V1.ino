@@ -1,17 +1,3 @@
-// Copyright 2023 Espressif Systems (Shanghai) PTE LTD
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 // Based on Espressif Light Bulb Example
 // 
 // Modified by MicroMasterMinds 🤯
@@ -90,6 +76,10 @@ static void esp_zb_task(void *pvParameters) {
   esp_zb_core_action_handler_register(zb_action_handler);
 
   esp_zb_set_primary_network_channel_set(ESP_ZB_TRANSCEIVER_ALL_CHANNELS_MASK);
+
+  //esp_zb_zcl_reset_nvram_to_factory_default();
+
+  //esp_zb_nvram_erase_at_start(true);
 
   ESP_ERROR_CHECK(esp_zb_start(false));
 
