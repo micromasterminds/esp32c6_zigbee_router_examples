@@ -99,13 +99,15 @@ void loop() {
   // Read carbon dioxide sensor every 2s
   if (!(timeCounter++ % 20)) {  // delaying for 100ms x 20 = 2s
     // Read sensor value - here is chip temperature used + 300 as a dummy value for demonstration
-    uint16_t carbon_dioxide_value = airSensor.getCO2();
-    float temp_value = airSensor.getTemperature();
-    float humidity_value = airSensor.getHumidity();
-    //Serial.printf("Updating carbon dioxide sensor value to %d ppm\r\n", carbon_dioxide_value);
-    zbCarbonDioxideSensor.setCarbonDioxide(carbon_dioxide_value);
-    zbTempSensor.setTemperature(temp_value);
-    zbTempSensor.setHumidity(humidity_value);
+    if (airSensor.dataAvailable()){
+      uint16_t carbon_dioxide_value = airSensor.getCO2();
+      float temp_value = airSensor.getTemperature();
+      float humidity_value = airSensor.getHumidity();
+      //Serial.printf("Updating carbon dioxide sensor value to %d ppm\r\n", carbon_dioxide_value);
+      zbCarbonDioxideSensor.setCarbonDioxide(carbon_dioxide_value);
+      zbTempSensor.setTemperature(temp_value);
+      zbTempSensor.setHumidity(humidity_value);
+    }
   }
 
   // Checking button for factory reset and reporting
