@@ -103,7 +103,9 @@ void loop() {
       uint16_t carbon_dioxide_value = airSensor.getCO2();
       float temp_value = airSensor.getTemperature();
       float humidity_value = airSensor.getHumidity();
-      //Serial.printf("Updating carbon dioxide sensor value to %d ppm\r\n", carbon_dioxide_value);
+
+      // Hier kannst du die Ausgabe von den Sensorwerten im Seriellen Monitor einkommentieren
+      Serial.printf("Updating sensor values to %f C, %f rH, %d ppm\r\n", temp_value, humidity_value, carbon_dioxide_value);
       zbCarbonDioxideSensor.setCarbonDioxide(carbon_dioxide_value);
       zbTempSensor.setTemperature(temp_value);
       zbTempSensor.setHumidity(humidity_value);
