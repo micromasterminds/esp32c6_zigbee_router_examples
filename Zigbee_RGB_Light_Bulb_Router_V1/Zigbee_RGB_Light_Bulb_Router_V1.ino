@@ -16,9 +16,9 @@
 #define LED_PIN RGB_BUILTIN
 
 /* Zigbee configuration */
-#define MAX_CHILDREN 10                                                  /* the max amount of connected devices */
-#define INSTALLCODE_POLICY_ENABLE false                                  /* enable the install code policy for security */
-#define HA_ESP_LIGHT_ENDPOINT 10                                         /* esp light bulb device endpoint, used to process light controlling commands */
+#define MAX_CHILDREN 10                 /* the max amount of connected devices */
+#define INSTALLCODE_POLICY_ENABLE false /* enable the install code policy for security */
+#define HA_ESP_LIGHT_ENDPOINT 10        /* esp light bulb device endpoint, used to process light controlling commands */
 
 /* Attribute values in ZCL string format
  * The string should be started with the length of its own. */

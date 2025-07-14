@@ -15,6 +15,7 @@ esp_err_t zb_action_handler(esp_zb_core_action_callback_id_t callback_id, const 
   return ret;
 }
 
+/* Handle the light attribute */
 esp_err_t zb_attribute_handler(const esp_zb_zcl_set_attr_value_message_t *message) {
   esp_err_t ret = ESP_OK;
   bool light_state = 0;
@@ -28,7 +29,6 @@ esp_err_t zb_attribute_handler(const esp_zb_zcl_set_attr_value_message_t *messag
 
   log_i("Received message: endpoint(%d), cluster(0x%x), attribute(0x%x), data size(%d)", message->info.dst_endpoint, message->info.cluster,
         message->attribute.id, message->attribute.data.size);
-
 
   if (message->info.dst_endpoint == HA_ESP_LIGHT_ENDPOINT) {
     switch (message->info.cluster) {
