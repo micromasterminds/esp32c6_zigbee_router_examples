@@ -5,7 +5,7 @@
 
 #include "Zigbee.h"
 #include <Wire.h>
-#include "SparkFun_SCD30_Arduino_Library.h" //Click here to get the library: http://
+#include "SparkFun_SCD30_Arduino_Library.h"
 
 // SCD30 config
 #define SCD30_SDA_PIN 6
@@ -101,6 +101,7 @@ void loop() {
     // Read sensor value - here is chip temperature used + 300 as a dummy value for demonstration
     if (airSensor.dataAvailable()){
       uint16_t carbon_dioxide_value = airSensor.getCO2();
+      // TODO: evtl. muss hier uint16_t anstelle von float stehen?
       float temp_value = airSensor.getTemperature();
       float humidity_value = airSensor.getHumidity();
 
